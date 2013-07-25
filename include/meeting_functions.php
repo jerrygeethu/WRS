@@ -1,0 +1,668 @@
+<script language="JavaScript" src="js/jquery.clockpick.1.2.8/jquery.clockpick.1.2.8.pack.js"></script>
+<!-- ====== ================================================= -->
+		<script language="javascript" type="text/javascript">
+			$(document).ready(function(){				
+				$("#clockpick").clockpick({
+					starthour       : 9,
+		endhour         : 17,
+		showminutes     : true,
+		minutedivisions : 4,
+		military        : false,
+		event           : 'click',
+		layout			: 'vertical',
+		valuefield		: null,
+		useBgiframe		: false,
+		hoursopacity	: 1,
+		minutesopacity  : 1
+		}); 			
+		 $("#people").dropdownchecklist();								
+			});
+			</script>
+<!-- ================== -->
+
+<?php
+$erredit="";
+$err="";
+$errTitle="";
+$errObj="";
+$errDate="";
+$msgmeeting="";
+$message="";
+$flag="";//flag is set on edit btn click
+$meetingexists="";
+$msg="";
+$arr_empid=array();
+if(isset($_POST['btnsave']))
+{	
+	$empid=$_SESSION['USERID'];   
+	$title=isset($_POST['meetingtitle'])?trim($_POST['meetingtitle']):"";
+	$objective=isset($_POST['objective'])?trim($_POST['objective']):"";
+	$date=isset($_POST['fromdate'])?dmyToymd($_POST['fromdate']):"";
+	$time1=isset($_POST['clockpick'])?trim($_POST['clockpick']):"";
+	$duration=isset($_POST['durationDrop'])?trim($_POST['durationDrop']):"";
+	$venue=isset($_POST['venue'])?trim($_POST['venue']):"";
+													if($duration==15)
+													{ 
+														$showDuration=" 15 mins ";
+													}
+													else if($duration==30)
+													{ 
+														$showDuration=" 30 mins ";
+													}
+													else if($duration==60)
+													{ 
+														$showDuration=" 1 hour ";
+													}
+													else if(($duration%60)>0)
+													{
+														$h=floor($duration/60);
+														$showDuration=$h." hours  30 mins";
+													}
+													else
+													{
+														$h=floor($duration/60);
+														$showDuration=$h." hours ";
+													}
+	$people=isset($_POST['people'])?$_POST['people']:"";	
+								if(!empty($people))
+								{
+									foreach($people as $e)
+									{
+										$emp=explode("-",$e);
+										$sel[$emp[0]][]=$emp[1];
+									}
+								}
+									$arrpeople=serialize($sel);
+									
+									
+									
+									
+									
+										$depid=array();
+										$empids=array();
+										$i=0;
+										if(!empty($people))
+										{
+										foreach($people as $value)
+										{
+											$arr1=explode("-",$value);	
+											$depid[$i]=$arr1[0];
+											$empids[$i]=$arr1[1];
+											$i++;
+										}										
+										}
+										$arr_unique_depid=array_unique($depid);
+										$arr_empid=$empids;
+	
+	
+	
+	if($title=="")                
+	{
+	$err=1;
+	$errTitle="Enter Subject.";
+	}
+	if($objective=="")
+	{
+	$err=1;
+	$errObj="Enter Agenda.";
+	}
+	if($date=="2009-01-01")
+	{
+	$err=1;
+	$errDate="Enter date.";
+	}
+	if($time1=="")
+	{
+	$err=1;
+	$errTime="Enter time.";
+	}
+	if($duration==0)
+	{
+	$err=1;
+	$errDuration="Enter duration.";
+	}
+	if($venue=="")
+	{
+	$err=1;
+	$errVenue="Enter venue.";
+	}
+	if($people==0)
+	{
+	$err=1;
+	$errPeople="Enter people.";
+	}
+	if($errDate=="")
+	{
+						////////////////////////////////////////////////////////////////////////////////////////////////////////
+						$timestamp=strftime("%Y-%m-%d %H:%M:%S %Y");
+						$today=strftime("%Y-%m-%d", strtotime($timestamp));
+						$date1=strtotime($date);
+						$today1=strtotime($today);
+						if($date1<$today1)
+						{
+							$err=1;
+							$errdatesch="Meeting schedule must be greater than today.";
+						}
+						
+						
+						/////////////////////////////////////////////////////////////////////////////////////////////////////////
+							//to check meeting already scheduled for particular date and time
+							/*	========================================*/
+														$strtime=strtotime($time1);
+														/*===remove am/pm====*/
+														$order=array('AM','PM');
+														$chk_start=str_replace($order,"",$time1);
+														$meetingtime=strtotime('+'.$showDuration,$strtime);
+														$chk_endd=date('g:i:s', $meetingtime);
+														$chk_end=substr_replace($chk_endd, '', -3, 3);
+							/*	========================================*/
+							$chkquery="select * from meeting where schdate='".$date."'";
+							$chkresult = $GLOBALS['db']->query($chkquery);
+							if($chkresult->num_rows>0)
+							{
+								while($chkrow = $chkresult->fetch_assoc())
+								{
+									$start_time=$chkrow['schtime'];
+									//remove am/pm
+									$order=array('AM','PM');
+									$new_startime=str_replace($order,"",$start_time);
+								
+									//////////////////////////////
+									$dur=$chkrow['duration'];
+																				if($dur==15){ $showDur=" 15 mins ";}
+																				else if($dur==30){ $showDur=" 30 mins ";}
+																				else if($dur==60){ $showDur=" 1 hour ";}
+																				else if(($dur%60)>0){$h=floor($dur/60);$showDur=$h." hours  30 mins";}
+																				else{$h=floor($dur/60);$showDur=$h." hours ";}
+								
+									$start_time1 = strtotime($start_time);
+									$end_time1 = strtotime('+'.$showDur, $start_time1);
+									$end_timee=date('g:i:s', $end_time1);
+									$end_time=substr_replace($end_timee, '', -3, 3);
+									if((($chk_start>=$new_startime)&&($chk_start<=$end_time)) ||(($chk_end>$new_startime)&&($chk_end<=$end_time)))
+									{
+										$err=1;
+										$meetingexists="Meeting already scheduled";
+									}
+								}
+							}
+	}
+	
+	if(($title!="")&&($objective!="")&&($date!="2009-01-01")&&($time1!="")&&($duration!=0)&&($people!=0))
+	{
+				$sub=check_submission($title,$objective,$date."".$time1."".$duration."".$people);
+				if($sub==false)
+				{
+						$err=1;
+						$meetingexists="Meeting already marked";
+				}
+	}
+	
+	if($err!=1)
+	{	
+		$emp_power=emp_authority($empid);								
+		if($emp_power['is_superadmin']==1)	{
+			$status="allow";
+			/*========get email_id of HODs========*/										
+										$j=0;
+										foreach($arr_unique_depid as $id)
+										{
+											$query="select e.fullname,e.email from employee e,department d where d.hod=e.employeeid and d.departmentid='".$id."' ";
+											$result = $GLOBALS['db']->query($query);
+											$row = $result->fetch_assoc();
+											$hod_emails[$j]=$row['email'];
+											$j++;											
+										}
+										/*=======get email_id of Employees========*/	
+											$k=0;					
+											foreach($arr_empid as $emp)
+											{
+											$query="select fullname,email from employee  where employeeid='".$emp."' ";
+											$result = $GLOBALS['db']->query($query);
+											$row = $result->fetch_assoc();
+											$emp_emails[$k]=$row['email'];
+											$k++;	
+											}
+											/*==============================*/
+											$hod_emails1=(!empty($hod_emails))?$hod_emails:"";
+											$all_emails=array_unique(array_merge($hod_emails1,$emp_emails));
+											
+																
+											require_once('class.mail.php');
+											$obj=new mail();
+											$meeting_mail=getsettings('meeting_mail');
+											
+											$query_id="select email from employee where employeeid in (".$meeting_mail.")";											
+											$result_id = $GLOBALS['db']->query($query_id);
+											if(isset($result_id) and $result_id->num_rows>0)
+											{
+												$email="";
+												while($row_id = $result_id->fetch_assoc())
+												{
+													$emailid=$row_id['email'];
+													if($email!="")
+													{
+														$email.=",";
+													}
+													$email.=$emailid;	
+												}
+											}
+											
+											$query_admin="select email from employee where employeeid ='1'";											
+											$result_admin = $GLOBALS['db']->query($query_admin);
+											if(isset($result_admin) and $result_admin->num_rows>0)
+											{
+												while($row_admin = $result_admin->fetch_assoc())
+												{
+													$admin_id=$row_admin['email'];
+												}
+											}
+																						
+											$emp_power=emp_authority($_SESSION['USERID']);
+											$data['from']=$emp_power['emp_email'];	
+											$data['to']=$all_emails;
+											$data['bcc']=array('raghu.n@primemoveindia.com',$email,$admin_id);
+											$data['subject']="WRS::Meeting::".trunc($title,0,15);	
+											$data['message']="Hi, \n Meeting invitation from ".$emp_power['emp_name']." [ ".$emp_power['emp_deptname']." ]
+											\nSubject: ".$title."\nAgenda: ".$objective."\nDate: ".$date."\nTime: ".$time1."\nDuration: ".$showDuration."\nVenue: ".$venue."";	
+											$value1=$obj->mailsend($data);
+											//printarray($data);
+											$message.=" <br/> Mail has been sent successfully ";
+/*
+											foreach($all_emails as $tomails)
+											{
+											$message.=" <br/>".$tomails;
+											}													
+*/
+										/*=========================================*/
+		
+		
+		}else{$status="pending";}
+	$query="INSERT INTO meeting(empid,schdate,schtime,duration,venue,title,descr,people,status) VALUES('".$empid."','".$date."','".$time1."','".$duration."','".$venue."','".$title."','".$objective."','".$arrpeople."','".$status."')";
+	$result = $GLOBALS['db']->query($query);
+	if($result) { 	$message.=" <br/> Meeting has been added successfully ";}		else{	$message.=" <br/> Error occured ";}
+	}
+	
+}
+
+
+
+//if(isset($_POST['editBtn'])|| isset($_POST['viewBtn']))
+if(isset($_POST['hid_mid'])|| isset($_POST['viewBtn']))
+{
+$mid=intval($_POST['hid_mid']);
+$query="select * from meeting where meetingid='".$mid."' ";
+$result = $GLOBALS['db']->query($query);
+$row = $result->fetch_assoc();
+$flag=1;
+}
+
+if(isset($_POST['update']))
+{	
+//$flag=1;
+	$flag=isset($_POST['flag'])?$_POST['flag']:"";
+	$meetingid=intval($_POST['meetid']);
+	$empid=$_SESSION['USERID'];   	
+	$feedback=isset($_POST['feedback'])?trim($_POST['feedback']):"";
+	$comments=isset($_POST['comments'])?trim($_POST['comments']):"";
+	
+	$target_path = "meeting/".rand(0,99999999);
+	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);  
+	$pattern = ".+(excel|msword|pdf)";      
+	  if($_FILES['uploadedfile']['size']>0)
+		{
+					if(eregi($pattern,$_FILES['uploadedfile']['type']))
+					{ 
+										if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)){ 
+												$fileName = $target_path; 
+												$fileflag=1;
+												$msg.="File has been uploaded successfully";												
+										}else{
+											//$fileName =""; 
+											$fileflag=0;
+											$msg.="There was an error uploading the file, please try again!";
+											$erredit=1;
+										}
+					}
+					else
+					{
+											//$fileName =""; 
+											$msg.="File type is not allowed to upload";
+											$erredit=1;
+					} 
+		}
+	if($erredit!=1)		
+	{
+		$updatequery="";
+		$updatequery="UPDATE meeting SET checkedby='".$empid."',conv ='".$feedback."' ";
+					if($fileName!=""){
+					$updatequery.=",file='".$fileName."'";
+				}
+	$updatequery.=",comments='".$comments."' WHERE meetingid='".$meetingid."' ";
+	$result = $GLOBALS['db']->query($updatequery);
+	if($result) {$msg.="<br/>Meeting has been updated";}else{$msg.="<br/>Error occurred";}
+	
+	$mid=intval($_POST['hid_mid']);
+	$query="select * from meeting where meetingid='".$mid."' ";
+	$result = $GLOBALS['db']->query($query);
+	$row = $result->fetch_assoc();
+	}
+	
+}
+
+
+
+
+if(isset($_POST['delete']))
+{
+	$meetingid=intval($_POST['meetid']);
+	$query="DELETE FROM meeting WHERE  meetingid='".$meetingid."'";
+	$result = $GLOBALS['db']->query($query);
+}
+
+
+
+if(isset($_POST['approveBtn']))
+{
+		$meetingid=intval($_POST['hid_mid']);
+		$query="UPDATE meeting SET status='allow' WHERE meetingid='".$meetingid."' ";
+		$result = $GLOBALS['db']->query($query);
+}
+if(isset($_POST['DenyBtn']))
+{
+		$meetingid=intval($_POST['hid_mid']);
+		$query="UPDATE meeting SET status='deny' WHERE meetingid='".$meetingid."' ";
+		$result = $GLOBALS['db']->query($query);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*========================functions=======================*/
+/*=====================================================*/
+///////////////////////////////////////////////////////////
+//function viewmeetings($start,$limit)
+function viewmeetings()
+{
+		
+	$timestamp=strftime("%Y-%m-%d %H:%M:%S %Y");
+	$today=strftime("%Y-%m-%d", strtotime($timestamp));
+	$empid=$_SESSION['USERID'];
+	$emp_power=emp_authority($empid);		
+	
+	
+	 $query="select m.meetingid,m.empid,DATE_FORMAT(m.schdate,'%d-%m-%Y') as schdate,m.schtime,m.duration,m.title,m.descr,m.people,m.status,m.checkedby,m.conv,m.file,m.comments,e.fullname from meeting m,employee e where m.empid=e.employeeid and e.empstatus='active'  order by m.schdate desc";
+	
+/*
+	$result1 = $GLOBALS['db']->query($query);
+	$totoal_count=$result1->num_rows;
+		
+	$query .= " limit  ".$start." , ".$limit;
+	$s=$start;
+*/
+	
+	$result = $GLOBALS['db']->query($query);
+	$view="";
+								if($result->num_rows>0)
+								{  
+									
+/*
+									$i=$start;
+									$f=$result->num_rows;
+*/
+									
+										$emps=array();
+										$exis=array();		
+										$ishod_mt=array();		
+										$mtfrom=array();		
+										while($row  = $result->fetch_assoc())
+										{ 					//check if login emp in meeting
+											
+																$people=unserialize($row['people']);
+																foreach($people as $dep){ 																	
+																	if(in_array($emp_power['emp_id'],$dep)){ 
+																		$exis[]=$row['meetingid'];
+																	} 
+																} 
+													
+																//check if HOD login and his employess are in meeting				
+																if($emp_power['is_hod']==1){
+																			$depthod=explode(',',$emp_power['ishod_deptid']);																											
+																			foreach($depthod as $dep){
+																						if(!empty($people[$dep])){
+																							/*========================*/
+																					 	$querymtfrom="SELECT meetingid,empid
+																													FROM meeting m,employee e 
+																													WHERE m.empid=e.employeeid and e.departmentid='".$dep."'
+																													and e.empstatus='active' and m.schdate>='".$today."' order by m.schdate desc";															
+																						$resultmtfrom = $GLOBALS['db']->query($querymtfrom);
+																						while($rowmtfrom  = $resultmtfrom->fetch_assoc())
+																						{
+																								$mtfrom[]=$rowmtfrom['meetingid'];
+																						}
+																							/*========================*/	
+																						$ishod_mt[]=	$row['meetingid']; 
+																							/*========================*/																																				
+																				}// if loop
+																			}// for loop																									
+																	}// if loop 
+													
+													
+										
+										}  
+								}
+	
+	$result = $GLOBALS['db']->query($query);
+	if($result->num_rows>0 )
+	{  		
+			while($row = $result->fetch_assoc())
+			{			
+				//$i++;
+					$meetingfrom=$row['empid'];//(!empty($emps))   
+					if((in_array(intval($row['meetingid']),$mtfrom))||(in_array(intval($row['meetingid']),$ishod_mt))  ||(in_array(intval($row['meetingid']),$exis))||($meetingfrom==$_SESSION['USERID']))
+					{
+				
+							if($row['status']=="allow"){
+								$class="style=\"background-color:#90EE90;\"";
+							}else if($row['status']=="pending"){
+								$class="style=\"background-color:#90EE90;\"";						
+							}else if($row['status']=="deny"){
+								$class="style=\"background-color:#FFA500;\"";
+							}
+							
+							
+														    
+									$view.="<tr ".$class."><td>".$row['fullname']."</td>
+															<td>".trunc($row['title'],0,10)."</td>
+															<td>".$row['schdate']."</td>
+															<td>
+															<form name=\"frmedit\" id=\"frmedit\" method=\"post\" action=\"meetings.php\">";
+															//$view.="<input type=\"submit\" name=\"viewBtn\" id=\"viewBtn\" value=\"View\"/>";			
+								//	if($row['status']=="allow") {						
+									$view.="<input type=\"submit\" name=\"editBtn\" id=\"editBtn\" value=\"Edit\"/>";			//previosly feedback btn
+								//}														
+									$view.="<input type=\"hidden\" name=\"hid_mid\" id=\"hid_mid\" value=\"".$row['meetingid']."\"/>";
+															if($row['status']=="deny") {$view.="Denied";} else if($row['status']=="allow") {$view.="Approved";} else if($row['status']=="pending") {$view.="Pending";}else if($row['status']=="cancel") { $view.="cancelled";}
+															
+														
+															
+										$view.="</form>
+															</td>
+															</tr>";
+					 }
+					 
+					 
+					 
+					 
+			}// while loop 
+	}
+	else
+	{
+		$view.="<td colspan=\"4\" align=\"center\">No Records</td>";
+	}
+			
+	
+/*
+			$data['tables']=$view;
+			$data['last_count']=$i;
+			$data['found_rows']=$f;
+			$data['total_count']=$totoal_count;
+			return $data;
+*/
+	return $view;
+}
+
+
+
+
+function deptlist($arr_empid)
+{
+	
+	$query="select departmentid,depname from department order by depname";
+	$result = $GLOBALS['db']->query($query);
+	$view="";
+	if($result->num_rows>0)
+	{
+		while($row = $result->fetch_assoc())
+		{
+			$view.="<optgroup label=\"".$row ['depname']."\">";
+			$query1="select employeeid,fullname from employee where departmentid='".$row['departmentid']."' and 	empstatus='active' order by fullname";
+			$result1= $GLOBALS['db']->query($query1);
+			if($result1->num_rows>0)
+			{
+				while($row1 = $result1->fetch_assoc())
+				{
+					
+					$view.="<option value=\"".$row['departmentid']."-".$row1['employeeid']."\" ";
+					
+					
+					if(in_array($row1['employeeid'],$arr_empid)){
+					$view.="selected=\"selected\"";
+				}
+				
+				
+					$view.=">".$row1['fullname']."</option>";
+				}
+			}
+			else
+			{
+				$view.="<option disabled=\"true\">No Records</option>";
+			}
+			$view.="</optgroup>";
+		}
+	}
+	else
+	{
+		$view.="<option>No Records</option>";
+	}
+	return $view;
+}
+
+
+function getdurations($sel=0){	
+ $max=120;
+ $data="";
+ 
+ 
+ $data.="<option value=\"15\" ";
+ if($sel==15) {$data.="selected=\"selected\"";}
+ $data.=">15 mins</option>";
+ 
+ 
+for($x=30; $x <= $max; $x += 30){
+	if($x==30){ $show=" 30 mins ";}
+	else if($x==60){ $show=" 1 hour ";}
+	else if(($x%60)>0){
+		$h=floor($x/60);
+		$show=$h." hours  30 mins";
+		}else{
+			$h=floor($x/60);
+				$show=$h." hours ";
+		}
+							$data .="<option value=\"".$x."\" " ;
+							if($x==$sel) { $data.="	selected=\"selected\" ";	}
+							$data.="	>".$show."</option>";
+							}
+							return $data;
+							}
+							
+							
+							
+							
+function approvemeetings()
+{
+	
+	$query="select m.*,e.fullname,DATE_FORMAT(schdate,'%d-%m-%Y') as date from meeting m,employee e where m.empid=e.employeeid and e.empstatus='active' and  (status='pending' or status='deny' ) order by m.schdate desc";
+	$result = $GLOBALS['db']->query($query);
+	$data['table']="";
+	$i=0;
+	if($result->num_rows>0)
+	{
+		while($row = $result->fetch_assoc())
+		{
+			$i++;
+				if($row['status']=="cancel"){$cancelled=" selected=\"selected\" ";}else $cancelled="";
+				if($row['status']=="deny"){$rejected=" selected=\"selected\" ";}else $rejected="";
+				if($row['status']=="pending"){$pending=" selected=\"selected\" ";}else $pending="";
+						
+			
+			
+			$emps=(!empty($row['people']))?$row['people']:"";
+									$getrow=unserialize($emps);
+									$select_emps="";$viewemp="";
+									if(!empty($getrow)){
+										$viewemp.="<div name=\"selected_emp\" id=\"selected_emp\" readonly=\"yes\" style=\"width:200px; height:150px; overflow:auto; background-color:#FFFFFF\" >";
+										foreach($getrow as $dep=>$value)
+										{
+												$querydep="select depname from department where departmentid='".$dep."'";
+												$resultdep = $GLOBALS['db']->query($querydep);
+												$rowdep = $resultdep->fetch_assoc();
+												$viewemp.="<br/><b>".$rowdep['depname']."</b>";
+												foreach($value as $k)	
+												{
+													//$select_emps[]=$k;
+													$query1="select fullname from employee where employeeid='".$k."'";
+													$result1 = $GLOBALS['db']->query($query1);
+													$row1 = $result1->fetch_assoc();
+													$viewemp.="<br/>".$row1['fullname'];
+												}																			
+										}
+										$viewemp.="</div>";				
+								  }
+			
+			$data['table'].="<tr>
+														<td>".$i."</td>
+														<td><div class=\"lev\">".$row['fullname']."</div></td>
+														<td  width=\"150px\"><div class=\"lev\">".ucfirst($row['title'])."</div></td>
+														<td  width=\"200px\"><div class=\"lev\">".ucfirst($row['descr'])."</div></td>
+
+														<td>
+														<div class=\"lev\">".$row['date']."</div>
+														<div class=\"lev\">".$row['schtime']."</div>
+														<div class=\"lev\">".$row['duration']." Mins</div>
+														</td>
+
+														<td>".$viewemp."</td>
+														<td>
+														
+																		<form action=\"meetingapprove.php\" method=\"post\">
+																		<textarea id=\"".$i."comments\" name=\"".$i."comments\" class=\"sup_remark_approveText\" >".ucfirst($row['notification'])."</textarea>
+																		<br/>
+																		<select   class=\"leave_select\" id=\"".$i."status\" name=\"".$i."status\"  >
+																		<option value=\"1\" ".$pending.">Approve</option>
+																		<option value=\"2\"  ".$rejected." >Reject</option>
+																		<option value=\"3\"  ".$cancelled.">Cancel</option>
+																		</select>
+																		<input type=\"submit\" value=\"Save\"  id=\"savebtn\"  name=\"savebtn\" value=\"savebtn\"/>
+																		<input type=\"hidden\" value=\"".$i."\" id=\"count\" name=\"count\" />
+																		<input type=\"hidden\" value=\"".$row['meetingid']."\" id=\"".$i."mid\" name=\"".$i."mid\" />
+																		<input type=\"hidden\" value=\"".$row['empid']."\" id=\"".$i."fromemp\" name=\"".$i."fromemp\" />
+																		</form>
+														</td>
+														</tr>
+									";
+									
+									
+			
+		}
+	}
+	return $data;
+}							
+?>

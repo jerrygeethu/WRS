@@ -1,0 +1,82 @@
+<?php
+function get_new_dept_list($empid,$emp_power=""){	
+$emp_power= empty($emp_power)? emp_authority($empid) :  $emp_power;
+$select=" SELECT distinct(d.departmentid) as departmentid, d.depname, d.depdescription ";
+$query="(".$select."FROM department as d, employee as e where d.departmentid ='".$emp_power['emp_deptid']."' and d.departmentid=e.departmentid and e.empstatus='active'  and e.employeeid > 1 ) ";
+if((	$emp_power['is_superadmin'] == 1) || $emp_power['is_hr'] == 1)
+  $query .= "union ( $select FROM department as d  , employee as e where d.departmentid=e.departmentid and e.empstatus='active'  and e.employeeid > 1 ) ";
+else if($emp_power['is_hod'] == 1)
+  $query .= "union ( $select FROM department as d , employee as e where d.departmentid in (".$emp_power['ishod_deptid'].") and  d.departmentid=e.departmentid and e.empstatus='active'  and e.employeeid > 1 ) ";
+if($emp_power['from_rep'] != "")
+  $query .= "union ( $select FROM department as d , employee as e where e.employeeid in (".$emp_power['from_rep'].") and d.departmentid=e.departmentid and e.empstatus='active'  and e.employeeid > 1 ) ";
+$query .=" order by depname  ";	 
+$data = $GLOBALS['db']->query($query);return $data;}
+
+
+
+
+
+
+function get_new_employee_list($deptid,$emp_power=""){
+$addq="";
+$emp_power= empty($emp_power)? emp_authority($empid) :  $emp_power;
+$select=" SELECT e.employeeid,e.fullname,e.departmentid,e.title,e.empname,e.designation  ";
+if($emp_power['from_rep'] != "" )
+$addq= " e.employeeid in (".$emp_power['from_rep'].") or ";
+$addq.= "  e.employeeid ='".intval($emp_power['emp_id'])."' " ;
+if((	$emp_power['is_superadmin'] == 1) || $emp_power['is_hr'] == 1)
+$addq=" employeeid > 1 ";
+if(	$emp_power['is_hod'] == 1) 
+$addq  .="   ";
+  $query=$select." from employee as e where e.departmentid = '".intval($deptid)."' and ( ".$addq." )  and e.employeeid > 1 and e.empstatus='active' order by e.fullname "; $data = $GLOBALS['db']->query($query);return $data;}
+
+
+
+function emp_list_after_reporting_to($empid="",$emp_power=""){
+$emp_power= empty($emp_power)? emp_authority($empid) :  $emp_power;
+			$newdeplist	= get_new_dept_list($_SESSION['USERID'],$emp_power);
+			$e=array();
+		//	print $newdeplist->num_rows;
+			if($newdeplist->num_rows > 0 ){
+			while($row = $newdeplist->fetch_assoc())
+	{	 
+		$newemplist="";	
+		$newemplist	= get_new_employee_list($row['departmentid'],$emp_power);
+		if($newemplist->num_rows > 0) {
+		while($emp = $newemplist->fetch_assoc()){
+				$e[]= intval($emp['employeeid']);		
+		
+				} 
+	}
+}
+}
+return array_unique($e);
+	}
+	
+	
+	
+function get_empid_email($empid){
+	$name_queryw=" select email from employee where employeeid='".$empid."' ";
+		$result_name22 = $GLOBALS['db']->query($name_queryw);
+		$row_name22 = $result_name22->fetch_assoc();
+		return $row_name22['email'];
+}
+function gne($emp_power){
+				$nemps="";											
+				$ss=emp_list_after_reporting_to($_SESSION['USERID'],$emp_power);
+				
+				if( ! empty ($ss))
+			foreach($ss as $em){
+			 $nemps .=($nemps=="")? intval($em) : ",".intval($em);
+				}  
+				//print $nemps ;
+				return $nemps;
+}
+
+function al($m){
+	print "
+	<script type=\"text/javascript\"> alert ('".$m."') ; </script>
+	 ";
+	}
+
+?>

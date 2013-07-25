@@ -1,0 +1,413 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/305/wrs/trunk
+END
+emp_request.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/32/wrs/trunk/emp_request.php
+END
+send_mail.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/32/wrs/trunk/send_mail.php
+END
+openreport.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/301/wrs/trunk/openreport.php
+END
+assignschedule.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/32/wrs/trunk/assignschedule.php
+END
+applyleave.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/186/wrs/trunk/applyleave.php
+END
+logincheck.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/logincheck.php
+END
+viewemployee.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/114/wrs/trunk/viewemployee.php
+END
+report.php
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/102/wrs/trunk/report.php
+END
+meetings.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/296/wrs/trunk/meetings.php
+END
+list.php
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/32/wrs/trunk/list.php
+END
+employeelist.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/32/wrs/trunk/employeelist.php
+END
+changepass.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/changepass.php
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/32/wrs/trunk/test.php
+END
+outbox.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/32/wrs/trunk/outbox.php
+END
+addhoc.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/32/wrs/trunk/addhoc.php
+END
+approveRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/32/wrs/trunk/approveRequest.php
+END
+analytics.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/32/wrs/trunk/analytics.php
+END
+add.php
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/32/wrs/trunk/add.php
+END
+pagination.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/pagination.php
+END
+new.php
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/32/wrs/trunk/new.php
+END
+tes.php
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/32/wrs/trunk/tes.php
+END
+schedule.php
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/32/wrs/trunk/schedule.php
+END
+assignactivity.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/146/wrs/trunk/assignactivity.php
+END
+editopenreport.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/241/wrs/trunk/editopenreport.php
+END
+openreport_analytics.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/303/wrs/trunk/openreport_analytics.php
+END
+rep_valid.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/146/wrs/trunk/rep_valid.php
+END
+index_old.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/32/wrs/trunk/index_old.php
+END
+addactivity.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/252/wrs/trunk/addactivity.php
+END
+listWorkflow.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/32/wrs/trunk/listWorkflow.php
+END
+viewreport.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/290/wrs/trunk/viewreport.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/32/wrs/trunk/index.php
+END
+printleave.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/printleave.php
+END
+schedule_old_old_modifed_on_2july2009.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/32/wrs/trunk/schedule_old_old_modifed_on_2july2009.php
+END
+viewopenreports.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/301/wrs/trunk/viewopenreports.php
+END
+testWf.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/32/wrs/trunk/testWf.php
+END
+empreport.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/290/wrs/trunk/empreport.php
+END
+employee.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/253/wrs/trunk/employee.php
+END
+assignschwork.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/146/wrs/trunk/assignschwork.php
+END
+assignschwork11.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/32/wrs/trunk/assignschwork11.php
+END
+missingreports.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/282/wrs/trunk/missingreports.php
+END
+home.php
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/32/wrs/trunk/home.php
+END
+approveleave.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/75/wrs/trunk/approveleave.php
+END
+meetings1.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/32/wrs/trunk/meetings1.php
+END
+activity.php
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/32/wrs/trunk/activity.php
+END
+test1.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/32/wrs/trunk/test1.php
+END
+department.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/department.php
+END
+city.php
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/32/wrs/trunk/city.php
+END
+logout.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/32/wrs/trunk/logout.php
+END
+file.php
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/32/wrs/trunk/file.php
+END
+assignschwork_bkp.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/32/wrs/trunk/assignschwork_bkp.php
+END
+assignadmdept.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/32/wrs/trunk/assignadmdept.php
+END
+fileupload.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/32/wrs/trunk/fileupload.php
+END
+meetingapprove.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/297/wrs/trunk/meetingapprove.php
+END
+replyWorkflow.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/32/wrs/trunk/replyWorkflow.php
+END
+viewleave.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/128/wrs/trunk/viewleave.php
+END
+selectbox.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/32/wrs/trunk/selectbox.php
+END
+activity_bkp.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/32/wrs/trunk/activity_bkp.php
+END
+compose.php
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/32/wrs/trunk/compose.php
+END
+assignhoddep.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/32/wrs/trunk/assignhoddep.php
+END
+schreport.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/98/wrs/trunk/schreport.php
+END
+approve_coff.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/32/wrs/trunk/approve_coff.php
+END
+editdepartment.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/32/wrs/trunk/editdepartment.php
+END
+workflow.php
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/32/wrs/trunk/workflow.php
+END
+wfFile.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/32/wrs/trunk/wfFile.php
+END
+coff.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/283/wrs/trunk/coff.php
+END
+inbox.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/32/wrs/trunk/inbox.php
+END
+editfile.php
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/32/wrs/trunk/editfile.php
+END
+printemployeelist.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/32/wrs/trunk/printemployeelist.php
+END

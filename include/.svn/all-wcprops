@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/305/wrs/trunk/include
+END
+rep_valid_query.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/32/wrs/trunk/include/rep_valid_query.php
+END
+class (copy).schactivity2.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/32/wrs/trunk/include/class%20(copy).schactivity2.php
+END
+readmore.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/32/wrs/trunk/include/readmore.php
+END
+class.schactivity.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/146/wrs/trunk/include/class.schactivity.php
+END
+getvalues.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/32/wrs/trunk/include/getvalues.php
+END
+meeting_functions1.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/225/wrs/trunk/include/meeting_functions1.php
+END
+activitydetails.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/32/wrs/trunk/include/activitydetails.php
+END
+parameters.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/305/wrs/trunk/include/parameters.php
+END
+names.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/32/wrs/trunk/include/names.php
+END
+report_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/132/wrs/trunk/include/report_functions.php
+END
+schedule_fun.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/32/wrs/trunk/include/schedule_fun.php
+END
+adhoc_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/177/wrs/trunk/include/adhoc_functions.php
+END
+outbox_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/32/wrs/trunk/include/outbox_functions.php
+END
+assign_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/32/wrs/trunk/include/assign_functions.php
+END
+class.schactivity2.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/32/wrs/trunk/include/class.schactivity2.php
+END
+common_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/186/wrs/trunk/include/common_functions.php
+END
+leave_eligibility.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/32/wrs/trunk/include/leave_eligibility.php
+END
+class.employee.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/254/wrs/trunk/include/class.employee.php
+END
+activitydetails_old_modifed_on_2july2009.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/32/wrs/trunk/include/activitydetails_old_modifed_on_2july2009.php
+END
+include.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/177/wrs/trunk/include/include.php
+END
+schedule_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/32/wrs/trunk/include/schedule_functions.php
+END
+leave_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/239/wrs/trunk/include/leave_functions.php
+END
+get_emp_power.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/178/wrs/trunk/include/get_emp_power.php
+END
+missingrept_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/276/wrs/trunk/include/missingrept_functions.php
+END
+view_report_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/128/wrs/trunk/include/view_report_functions.php
+END
+compose_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/32/wrs/trunk/include/compose_functions.php
+END
+rep_valid_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/32/wrs/trunk/include/rep_valid_functions.php
+END
+getreports.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/32/wrs/trunk/include/getreports.php
+END
+workflow_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/32/wrs/trunk/include/workflow_functions.php
+END
+approve_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/wrs/trunk/include/approve_functions.php
+END
+home_schedule.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/32/wrs/trunk/include/home_schedule.php
+END
+sch_variables.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/32/wrs/trunk/include/sch_variables.php
+END
+leavefun.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/287/wrs/trunk/include/leavefun.php
+END
+inbox_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/32/wrs/trunk/include/inbox_functions.php
+END
+class.department.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/32/wrs/trunk/include/class.department.php
+END
+attendance_function.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/32/wrs/trunk/include/attendance_function.php
+END
+meeting_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/299/wrs/trunk/include/meeting_functions.php
+END
+approvecoff_fns.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/289/wrs/trunk/include/approvecoff_fns.php
+END
+emp_request_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/32/wrs/trunk/include/emp_request_functions.php
+END
+class.file.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/32/wrs/trunk/include/class.file.php
+END
+openreport_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/302/wrs/trunk/include/openreport_functions.php
+END
+class.mail.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/32/wrs/trunk/include/class.mail.php
+END
+report_database_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/109/wrs/trunk/include/report_database_functions.php
+END

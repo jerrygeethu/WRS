@@ -1,0 +1,331 @@
+.leave_table {
+padding:1px;
+background-color:#D1D1D3;
+}
+.back_td{
+padding:2px;
+}
+.date_text1{
+width:25px;color:#000000;background-color:#B5B5B5;border:1px solid #000000;
+}
+.date_text{
+width:75px;
+}
+.leave_text{
+width:250px;
+height:150px;
+}
+#validate{
+color:#FF0000;
+font-weight:bold;
+font-size:12px;
+}
+.leave_detials td{
+
+}
+.leave_select{
+width:100px;
+
+}
+.notsanctioned{
+background-color:#FF9865;
+}
+.rejected{
+background-color:#FF5F6A;
+}
+.sanctioned{
+background-color:#A1FF8D;
+}
+.remarks{
+width:250px;
+}
+.approve_table td {
+background-color:#FFFFFF;
+padding:5px;
+}
+.schedule_table_div{
+border:2px solid #FFFFFF;
+}
+.schedule_table td{
+border:1px solid #000000;
+padding:5px;
+}
+.schedule_textarea{
+width:288px;
+height:150px;
+border:1px solid #949494 ;
+}
+
+.comment_textarea{
+height:150px;
+border:1px solid #949494 ;
+}
+
+.reporttimedrop{
+width:90px;
+}
+
+#message{
+color:#FF0000;
+font-weight:bold;
+font-size:12px;
+}
+
+.scroll {
+height:150px;
+width:250px;
+overflow:auto;
+color:#353535;
+}
+
+.dropSelect {
+width:250px;
+}
+.time_table{
+border:0px;
+
+}
+
+.time_table td{
+border:0px;
+
+}
+.date_field{
+color:#FF5A00;
+font-weight:bold;
+}
+.error{
+color:#FF5A00;
+font-size:11px;
+
+}
+.hoursWorked{
+
+color:#FD6200;
+font-size:12px;
+}
+.hoursWorkedL{
+
+color:#FF3747;
+font-size:14px;
+}
+.firstTD{ 
+width:127px;
+border:1px solid #000000;
+padding:1px;
+}
+.secondTD{
+width:252px;
+border:1px solid #000000;
+padding:1px;
+}
+.thirdTD{
+width:290px;
+border:1px solid #000000;
+padding:1px;
+}
+.fourthTD{
+border:1px solid #000000;
+padding:5px;
+}
+.time_drop{
+width:125px;
+
+}
+.date{
+color:#FF5A00;
+font-size:11px;
+
+}
+.leave_apply td{
+padding:3px;
+
+}
+
+.leave_apply{
+padding:3px;
+border:1px solid #464646;
+}
+.permission{
+
+padding:3px;
+border:1px solid #464646;
+background-color:#949494 ;
+}
+
+
+.fileUpload{
+padding:1px;
+border:1px solid #464646;
+background-color:#949494 ;
+text-align:left;
+font-size:12px;
+}
+.sup_remark_approveText{
+
+padding:3px;
+width:200px;
+height:100px;
+}
+.sup_remark_rejectText{
+
+padding:3px;
+width:200px;
+height:100px;
+}
+.file_upload_input{
+border:2px solid #DF1313;
+}
+.admin_remark{
+height:100px;
+width:288px;
+overflow:auto;
+color:#FF5A00;
+padding:2px;
+border:1px solid #000000;
+}
+.admin_remark label{ 
+color:#00762F;
+}
+.tab_link{ 
+text-decoration:none; 
+color:#000000;
+}
+
+
+.mails{
+background-color:#FFFFFF;
+border:1px solid #808080;
+margin:1px;
+padding:1px; 
+font-size:12px;
+text-align:left
+font-weight:bold;
+}
+ 
+
+.mails:hover{
+background-color:#8BE6FF;
+border:1px solid #808080;
+margin:1px;
+padding:1px; 
+font-size:12px;
+text-align:left
+font-weight:bold;
+}
+
+.previewmails{
+background-color:#00AACF;
+border:1px solid #808080;
+
+margin:1px;
+padding:1px; 
+font-size:12px;
+text-align:left
+font-weight:bold;
+}
+ 
+.example2demos{
+border:1px solid #F20002;
+width:100px;
+background-color:#6EE1FF; 
+color:#0500F2;
+text-decoration:none; 
+font-size:10px
+fon-weight:bold;
+
+}
+.example2demo:hover{
+border:1px solid #002DF2;
+width:100px;
+background-color:#CDF5FF; 
+color:#FF0500;
+text-decoration:none; 
+font-size:10px
+font-weight:bold;
+
+}
+.input-style{
+letter-spacing:1px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:3px;
+width:425px;
+height:25px;
+background-color:#89E3FF;
+border:1px solid #0758BB;
+opacity:0.9;
+filter:alpha(opacity=80);
+color:#0021FF;
+}
+.button-style{
+letter-spacing:1px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:3px; 
+height:25px;
+background-color:#89E3FF;
+border:1px solid #0758BB;
+opacity:0.9;
+filter:alpha(opacity=80);
+color:#0021FF;
+}
+.select-style{
+letter-spacing:1px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:3px;  
+background-color:#89E3FF;
+border:1px solid #0758BB;
+opacity:0.9;
+filter:alpha(opacity=80);
+color:#0021FF;
+}
+.mail_content{
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:2px;
+width:425px;
+height:350px;
+background-color:#89E3FF;
+border:1px solid #0758BB;
+color:#0021FF;
+
+}
+.mail_button{
+
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+background-color:#89E3FF;
+border:1px solid #0758BB;
+color:#0021FF;
+
+} 
+.outboxmails{
+
+background-color:#89E3FF;
+border-botttom:1px solid #0758BB;
+color:#000000;
+font-size:12px;
+font-weight:bold;
+padding:5px;
+}
+.mail_preview_content{ 
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:2px;
+width:100%;
+height:350px;
+background-color:#89E3FF;
+border:1px solid #0758BB;
+color:#0021FF;
+
+}
+.error{
+
+background-color:#FF9089;
+border:1px solid #BB0714;
+color:#000000;
+padding:2px; font-size:12px;
+font-weight:bold;
+}
